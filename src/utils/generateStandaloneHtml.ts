@@ -1,0 +1,410 @@
+export function downloadStandaloneHtmlFile() {
+  const htmlContent = `<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Younes Houari | Chef d'Atelier & Technicien Mécatronique</title>
+  <meta name="description" content="CV Professionnel de Younes Houari: Chef d'Atelier & Technicien Supérieur en Mécatronique Automobile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #050508;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .gold-text {
+      background: linear-gradient(135deg, #fff3b0 0%, #d4af37 50%, #aa8222 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bubble-container {
+      border-radius: 32px;
+      background-color: rgba(13, 13, 19, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    }
+    .bubble-card {
+      border-radius: 24px;
+      background-color: rgba(20, 20, 28, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .bubble-pill {
+      border-radius: 9999px;
+      background-color: rgba(22, 22, 32, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .bubble-btn-gold {
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #b89028 100%);
+      color: #050508;
+      font-weight: 700;
+    }
+    @media print {
+      body { background: white !important; color: #0f172a !important; }
+      .no-print { display: none !important; }
+      #cinematic-overlay { display: none !important; }
+      .bubble-container, .bubble-card { border-radius: 12px !important; border: 1px solid #cbd5e1 !important; background: white !important; color: #0f172a !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-100 selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- CINEMATIC INTRO: ONLY "Creativity is the key" for 6 seconds -->
+  <div id="cinematic-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#050508] transition-opacity duration-1000 px-6">
+    <div class="relative z-10 text-center max-w-xl w-full">
+      <div class="min-h-[4.5rem] flex items-center justify-center">
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight font-display">
+          <span id="typed-text" class="gold-text"></span>
+          <span id="cursor" class="inline-block w-1.5 h-9 sm:h-12 bg-[#d4af37] ml-2 align-middle animate-pulse"></span>
+        </h1>
+      </div>
+      <button onclick="dismissIntro()" class="mt-8 px-4 py-1.5 text-xs font-mono text-neutral-500 hover:text-[#d4af37] border border-neutral-800 hover:border-[#d4af37]/40 rounded-full transition-colors">
+        Skip →
+      </button>
+    </div>
+  </div>
+
+  <div id="cv-root" class="opacity-0 transition-opacity duration-700">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-[#050508]/90 backdrop-blur-md border-b border-[#d4af37]/20 no-print">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3 shrink-0">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#d4af37] ring-4 ring-[#d4af37]/20"></span>
+          <span class="font-bold text-lg text-white tracking-tight">YOUNES HOUARI</span>
+          <span class="hidden sm:inline-block text-xs font-mono text-[#d4af37]/80">· CHEF D'ATELIER</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="flex items-center p-1 bg-[#12121a] border border-[#d4af37]/30 rounded-full text-xs font-medium">
+            <button onclick="setLang('fr')" id="btn-fr" class="px-3 py-1 rounded-full bg-[#d4af37] text-black font-bold">Français</button>
+            <button onclick="setLang('en')" id="btn-en" class="px-3 py-1 rounded-full text-slate-400 hover:text-white">English</button>
+            <button onclick="setLang('ar')" id="btn-ar" class="px-3 py-1 rounded-full text-slate-400 hover:text-white">العربية</button>
+          </div>
+          <a href="tel:0669003959" class="bubble-btn-gold px-4 py-1.5 text-xs flex items-center gap-1.5">
+            <span>📞</span> <span>0669 00 39 59</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+      <!-- Profile Bubble -->
+      <section class="bubble-container p-6 sm:p-10 space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-8 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <span class="bubble-pill px-4 py-1.5 text-xs font-mono text-[#d4af37]" id="txt-badge">
+                En poste · EURL Innovalift (Baraki - Alger)
+              </span>
+              <span class="text-xs font-mono text-neutral-400">
+                Tiaret · Alger · Oran
+              </span>
+            </div>
+
+            <div>
+              <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" id="txt-name">
+                Younes Houari
+              </h1>
+              <p class="text-lg sm:text-xl font-semibold text-[#d4af37] mt-2" id="txt-title">
+                Chef d'Atelier & Technicien Supérieur en Mécatronique Automobile
+              </p>
+            </div>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed" id="txt-summary">
+              Professionnel de terrain rigoureux alliant expertise technique approfondie (diagnostic électronique automobile multimarque, systèmes GPL, mécanique avancée) et vision moderne de gestion d'atelier. Concepteur de solutions numériques concrètes pour éliminer la lourdeur du papier et optimiser le suivi des flottes.
+            </p>
+
+            <!-- Personal Info Bubble Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[#d4af37]/20 text-xs font-mono">
+              <div class="bubble-card p-3.5 text-center">
+                <span class="text-neutral-500 block text-[10px] uppercase">Naissance</span>
+                <span class="font-bold text-white" id="txt-birth">11/03/2001 (23 ans)</span>
+              </div>
+              <div class="bubble-card p-3.5 text-center">
+                <span class="text-neutral-500 block text-[10px] uppercase">Résidence</span>
+                <span class="font-bold text-white" id="txt-res">Baraki - Alger</span>
+              </div>
+              <div class="bubble-card p-3.5 text-center">
+                <span class="text-neutral-500 block text-[10px] uppercase">Service National</span>
+                <span class="font-bold text-[#d4af37]" id="txt-mil">Accompli</span>
+              </div>
+              <div class="bubble-card p-3.5 text-center">
+                <span class="text-neutral-500 block text-[10px] uppercase">Permis</span>
+                <span class="font-bold text-[#d4af37]" id="txt-lic">Catégorie B</span>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex flex-wrap gap-3 pt-2 no-print">
+              <a href="tel:0669003959" class="bubble-btn-gold px-6 py-2.5 text-xs flex items-center gap-2">
+                <span>📞</span> <span id="txt-btn-call">Appel direct (0669 00 39 59)</span>
+              </a>
+              <button onclick="window.print()" class="bubble-pill px-5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white flex items-center gap-2">
+                <span>📄</span> <span id="txt-btn-pdf">Imprimer / Télécharger PDF</span>
+              </button>
+              <a href="mailto:y.houari02@gmail.com" class="bubble-pill px-5 py-2.5 text-xs text-neutral-300 hover:text-white flex items-center gap-2">
+                <span>✉️</span> <span>y.houari02@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Portrait Bubble -->
+          <div class="lg:col-span-4 flex flex-col items-center justify-center">
+            <div class="relative w-full max-w-[280px]">
+              <div class="rounded-[30px] p-3 bg-[#0a0a12] border border-[#d4af37]/40 shadow-xl space-y-2">
+                <div class="relative aspect-square rounded-[22px] overflow-hidden bg-[#0d0d17] border border-[#d4af37]/25">
+                  <img src="./younes_houari.png" alt="Younes Houari - Chef d'Atelier & Mécatronicien" class="w-full h-full object-cover object-top" onerror="this.style.display='none'">
+                </div>
+                <div class="text-center py-1 space-y-0.5">
+                  <div class="text-sm font-bold text-white" id="txt-photo-name">Younes Houari</div>
+                  <div class="text-xs text-[#d4af37] font-medium" id="txt-photo-role">Chef d’Atelier & Mécatronicien</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Vision Statement Bubble -->
+      <section class="bubble-container p-8 sm:p-10 space-y-6">
+        <div class="flex items-center gap-2">
+          <span class="bubble-pill px-3 py-1 text-xs font-mono text-[#d4af37]">Vision & Ambition</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white" id="txt-vis-title">
+          Créativité & Transformation Digitale d'Atelier
+        </h2>
+        <div class="bubble-card p-6 sm:p-8 border-[#d4af37]/35">
+          <p class="text-base sm:text-lg text-amber-100/90 leading-relaxed italic" id="txt-vis-quote">
+            « Je suis arrivé à un stade où je souhaite libérer pleinement ma créativité dans un environnement propice. En tant que Chef d'Atelier, j'ai transformé la gestion papier traditionnelle en un système entièrement numérisé en développant une plateforme sur mesure utilisant des codes QR pour chaque véhicule de l'entreprise afin d'enregistrer instantanément les données d'entretien. J'ai conçu des solutions concrètes, et je recherche aujourd'hui l'endroit idéal où mon potentiel et mon esprit d'innovation pourront s'épanouir sans limites. »
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bubble-card p-5">
+            <span class="text-xs font-mono text-[#d4af37] font-bold">01 · Numérisation</span>
+            <p class="text-xs text-slate-300 mt-2">QR codes montés sur chaque véhicule pour remplacer les feuilles d'atelier égarées.</p>
+          </div>
+          <div class="bubble-card p-5">
+            <span class="text-xs font-mono text-[#d4af37] font-bold">02 · Traçabilité</span>
+            <p class="text-xs text-slate-300 mt-2">Kilométrage, vidanges et alertes instantanément consultables en 1 seconde.</p>
+          </div>
+          <div class="bubble-card p-5">
+            <span class="text-xs font-mono text-[#d4af37] font-bold">03 · Ambition</span>
+            <p class="text-xs text-slate-300 mt-2">Recherche d'un environnement stimulant pour déployer des solutions sans limites.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Bubbles -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+          <span class="w-2 h-6 bg-[#d4af37] rounded-full"></span>
+          <span id="txt-exp-h">Expérience Professionnelle</span>
+        </h2>
+        <div class="bubble-card p-6 sm:p-8 space-y-2 border-[#d4af37]/40">
+          <div class="flex flex-wrap justify-between gap-2">
+            <h3 class="text-lg font-bold text-white">Chef d'Atelier · EURL Innovalift</h3>
+            <span class="bubble-pill px-3 py-0.5 text-xs font-mono text-[#d4af37]">23/08/2026 à ce jour</span>
+          </div>
+          <div class="text-xs text-[#d4af37]/80 font-mono">Baraki - Alger</div>
+          <p class="text-sm text-slate-300 pt-1">
+            Gestion intégrale des opérations mécaniques, encadrement des techniciens, gestion des stocks et conception de la plateforme digitale de suivi de parc par QR code.
+          </p>
+        </div>
+        <div class="bubble-card p-6 sm:p-8 space-y-2">
+          <div class="flex flex-wrap justify-between gap-2">
+            <h3 class="text-lg font-bold text-white">Mécanicien Assistant · Atelier Mécanique Spécialisé</h3>
+            <span class="bubble-pill px-3 py-0.5 text-xs font-mono text-neutral-400">2026</span>
+          </div>
+          <div class="text-xs text-neutral-400 font-mono">Plateau - Oran</div>
+          <p class="text-sm text-slate-300 pt-1">
+            Réparation moteurs thermiques, révision des trains roulants, freinage, distribution et dépannage électrique rapide.
+          </p>
+        </div>
+        <div class="bubble-card p-6 sm:p-8 space-y-2">
+          <div class="flex flex-wrap justify-between gap-2">
+            <h3 class="text-lg font-bold text-white">Stage Pratique GPL (Installation & Maintenance) · Djabour GPL</h3>
+            <span class="bubble-pill px-3 py-0.5 text-xs font-mono text-neutral-400">2024 - 2025</span>
+          </div>
+          <div class="text-xs text-neutral-400 font-mono">Sougueur</div>
+          <p class="text-sm text-slate-300 pt-1">
+            Montage des kits GPL, calibration des vapo-détendeurs, programmation des calculateurs gaz et tests de sécurité haute pression.
+          </p>
+        </div>
+        <div class="bubble-card p-6 sm:p-8 space-y-2">
+          <div class="flex flex-wrap justify-between gap-2">
+            <h3 class="text-lg font-bold text-white">Assistant chez atelier de scanneur automobile</h3>
+            <span class="bubble-pill px-3 py-0.5 text-xs font-mono text-neutral-400">2024</span>
+          </div>
+          <div class="text-xs text-neutral-400 font-mono">Aflou</div>
+          <p class="text-sm text-slate-300 pt-1">
+            Diagnostic électronique assisté (OBD-II, CAN Bus), Live Data, identification et effacement des codes défauts (DTC).
+          </p>
+        </div>
+      </section>
+
+      <!-- Education Bubbles -->
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+          <span class="w-2 h-6 bg-[#d4af37] rounded-full"></span>
+          <span id="txt-edu-h">Formations & Diplômes</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bubble-card p-6">
+            <span class="text-xs font-mono text-[#d4af37] font-bold">2025</span>
+            <h3 class="font-bold text-white mt-1 mb-2">Technicien Supérieur en Mécatronique Automobile</h3>
+            <p class="text-xs text-neutral-400">INSFP Ziane Belkacem Senia - Tiaret</p>
+          </div>
+          <div class="bubble-card p-6">
+            <span class="text-xs font-mono text-[#d4af37] font-bold">2021</span>
+            <h3 class="font-bold text-white mt-1 mb-2">Licence en Langue Française</h3>
+            <p class="text-xs text-neutral-400">Univ Ibn Khaldoun Tiaret</p>
+          </div>
+          <div class="bubble-card p-6">
+            <span class="text-xs font-mono text-[#d4af37] font-bold">2018</span>
+            <h3 class="font-bold text-white mt-1 mb-2">Baccalauréat Scientifique</h3>
+            <p class="text-xs text-neutral-400">Sciences Expérimentales</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Bubble -->
+      <section class="bubble-container p-8 sm:p-10 text-center space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white" id="txt-con-h">Contact Direct</h2>
+        <p class="text-neutral-400 text-sm">Disponible pour échanger sur des projets ambitieux</p>
+        <div class="flex flex-wrap justify-center gap-4 pt-2 no-print">
+          <a href="tel:0669003959" class="bubble-btn-gold px-6 py-2.5 text-xs">📞 0669 00 39 59</a>
+          <a href="mailto:y.houari02@gmail.com" class="bubble-pill px-5 py-2.5 text-xs text-neutral-200">✉️ y.houari02@gmail.com</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Cinematic Intro: ONLY "Creativity is the key" for 6 seconds
+    const phrase = "Creativity is the key";
+    let pIdx = 0;
+    const typedEl = document.getElementById("typed-text");
+    const overlay = document.getElementById("cinematic-overlay");
+    const root = document.getElementById("cv-root");
+
+    function typeLetters() {
+      if (pIdx < phrase.length) {
+        typedEl.textContent += phrase.charAt(pIdx);
+        pIdx++;
+        setTimeout(typeLetters, 70);
+      } else {
+        // Keep visible for the remainder of the 6 seconds
+        setTimeout(dismissIntro, 4500);
+      }
+    }
+
+    function dismissIntro() {
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        root.classList.remove('opacity-0');
+      }, 700);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeLetters, 400);
+    });
+
+    const dict = {
+      fr: {
+        badge: "En poste · EURL Innovalift (Baraki - Alger)",
+        name: "Younes Houari",
+        title: "Chef d'Atelier & Technicien Supérieur en Mécatronique Automobile",
+        summary: "Professionnel de terrain rigoureux alliant expertise technique approfondie (diagnostic électronique automobile multimarque, systèmes GPL, mécanique avancée) et vision moderne de gestion d'atelier. Concepteur de solutions numériques concrètes pour éliminer la lourdeur du papier et optimiser le suivi des flottes.",
+        birth: "11/03/2001 (23 ans)", res: "Baraki - Alger", mil: "Accompli", lic: "Catégorie B",
+        btnCall: "Appel direct (0669 00 39 59)", btnPdf: "Imprimer / Télécharger PDF",
+        visTitle: "Créativité & Transformation Digitale d'Atelier",
+        visQuote: "« Je suis arrivé à un stade où je souhaite libérer pleinement ma créativité dans un environnement propice. En tant que Chef d'Atelier, j'ai transformé la gestion papier traditionnelle en un système entièrement numérisé en développant une plateforme sur mesure utilisant des codes QR pour chaque véhicule de l'entreprise afin d'enregistrer instantanément les données d'entretien. J'ai conçu des solutions concrètes, et je recherche aujourd'hui l'endroit idéal où mon potentiel et mon esprit d'innovation pourront s'épanouir sans limites. »",
+        expH: "Expérience Professionnelle", eduH: "Formations & Diplômes", conH: "Contact Direct",
+        photoName: "Younes Houari", photoRole: "Chef d’Atelier & Mécatronicien"
+      },
+      en: {
+        badge: "Currently @ EURL Innovalift (Baraki - Algiers)",
+        name: "Younes Houari",
+        title: "Workshop Manager & Senior Mechatronics Technician",
+        summary: "Proactive, results-driven professional combining deep hands-on automotive expertise (multi-brand electronic diagnostics, LPG/GPL systems, powertrain overhaul) with modern digital workshop management. Builder of custom digital platforms that replace paper logs with instant QR-code fleet traceability.",
+        birth: "March 11, 2001 (Age 23)", res: "Baraki - Algiers", mil: "Completed", lic: "Category B",
+        btnCall: "Direct Call (0669 00 39 59)", btnPdf: "Print / Download PDF",
+        visTitle: "Creativity & Digital Workshop Transformation",
+        visQuote: "“I have reached a point where I want to unleash my creativity in the right environment. As a Workshop Manager, I transformed traditional paper-based tracking into a fully digital system by building a custom platform utilizing QR codes for every company vehicle to instantly log data. I've built solutions, but now I'm looking for the ideal place where my potential and creativity can truly scale without limits.”",
+        expH: "Professional Experience", eduH: "Education & Qualifications", conH: "Direct Contact",
+        photoName: "Younes Houari", photoRole: "Chef d’Atelier & Mécatronicien"
+      },
+      ar: {
+        badge: "يشغل حالياً منصب مسؤول ورشة لدى EURL Innovalift (براقي - الجزائر)",
+        name: "يونس هواري",
+        title: "مسؤول ورشة وتقني سامي في ميكاترونيك السيارات",
+        summary: "مهني ميداني يجمع بين الكفاءة التقنية العالية في تشخيص إلكترونيك السيارات بمختلف أنواعها، وأنظمة الغاز المميع (GPL)، وصيانة المحركات، مع حس إداري رقمي متطور. مطور حلول تقنية ملموسة استبدلت السجلات الورقية التقليدية بمنظومة تتبع ذكية تعتمد رموز الاستجابة السريعة (QR Code).",
+        birth: "11 مارس 2001 (23 سنة)", res: "براقي - الجزائر العاصمة", mil: "مؤدى", lic: "صنف ب (B)",
+        btnCall: "اتصال مباشر (0669 00 39 59)", btnPdf: "تحميل السيرة الذاتية PDF",
+        visTitle: "الإبداع والرقمنة الشاملة للورشات الميكانيكية",
+        visQuote: "« لقد وصلت إلى مرحلة أرغب فيها بإطلاق العنان لإبداعي ضمن البيئة المناسبة. بصفتي مسؤول ورشة، قمت بتحويل نظام التتبع الورقي التقليدي إلى منظومة رقمية متكاملة عبر ابتكار منصة مخصصة تعتمد رموز QR لكل مركبة بالشركة لتسجيل ومعالجة البيانات بشكل فوري. لقد صنعت حلولاً عملية، واليوم أبحث عن المكان المثالي الذي يتيح لإمكاناتي وشغفي بالابتكار التطور والارتقاء دون حدود. »",
+        expH: "الخبرات والمسار المهني", eduH: "المؤهلات العلمية والشهادات", conH: "التواصل المباشر",
+        photoName: "يونس هواري", photoRole: "مسؤول ورشة وميكاترونيكي"
+      }
+    };
+
+    function setLang(langKey) {
+      const d = dict[langKey];
+      if (!d) return;
+
+      const html = document.documentElement;
+      if (langKey === 'ar') {
+        html.setAttribute('dir', 'rtl');
+      } else {
+        html.setAttribute('dir', 'ltr');
+      }
+
+      document.getElementById("txt-badge").textContent = d.badge;
+      document.getElementById("txt-name").textContent = d.name;
+      document.getElementById("txt-title").textContent = d.title;
+      document.getElementById("txt-summary").textContent = d.summary;
+      document.getElementById("txt-birth").textContent = d.birth;
+      document.getElementById("txt-res").textContent = d.res;
+      document.getElementById("txt-mil").textContent = d.mil;
+      document.getElementById("txt-lic").textContent = d.lic;
+      document.getElementById("txt-btn-call").textContent = d.btnCall;
+      document.getElementById("txt-btn-pdf").textContent = d.btnPdf;
+      document.getElementById("txt-vis-title").textContent = d.visTitle;
+      document.getElementById("txt-vis-quote").textContent = d.visQuote;
+      document.getElementById("txt-exp-h").textContent = d.expH;
+      document.getElementById("txt-edu-h").textContent = d.eduH;
+      document.getElementById("txt-con-h").textContent = d.conH;
+      if (document.getElementById("txt-photo-name")) document.getElementById("txt-photo-name").textContent = d.photoName;
+      if (document.getElementById("txt-photo-role")) document.getElementById("txt-photo-role").textContent = d.photoRole;
+
+      ['fr', 'en', 'ar'].forEach(k => {
+        const btn = document.getElementById("btn-" + k);
+        if (k === langKey) {
+          btn.className = "px-3 py-1 rounded-full bg-[#d4af37] text-black font-bold";
+        } else {
+          btn.className = "px-3 py-1 rounded-full text-slate-400 hover:text-white";
+        }
+      });
+    }
+  </script>
+</body>
+</html>`;
+
+  const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'Younes_Houari_CV_Digital.html';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
